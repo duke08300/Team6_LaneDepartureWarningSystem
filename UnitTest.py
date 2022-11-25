@@ -11,3 +11,17 @@ class LaneDetectionTestCases(unittest.TestCase):
         image = cv2.imread(self.image_path)
 
         self.assertIsNotNone(image,'input image not found')
+        
+    def test_cameracaliberation(self):
+    caliberation = CheckCameraCalibration('camera_cal', 9, 6)
+    self.assertIsNotNone(caliberation,'Exception should be raised')
+
+    def test_image_equal(self):
+        image = mpimg.imread(self.image_path)
+        img = mpimg.imread(self.image_path)
+        caliberation = CheckCameraCalibration('camera_cal', 9, 6)
+        image1 = caliberation.undistort(img)
+        print('printing the image')
+        diff = cv2.subtract(image,img)
+        # print(diff)
+        cv2.imshow('Difference',diff)
