@@ -2,9 +2,7 @@ import unittest
 import cv2
 from matplotlib import image as mpimg
 
-from LaneDetectionCaliberation import CheckCameraCalibration
-from main import DetectLanes
-import os
+from LaneDetectionCaliberation import CheckCameraCalibration    
 
 print('-----------------------------Testing starts here-----------------------------------')
 class LaneDetectionTestCases(unittest.TestCase):
@@ -13,9 +11,3 @@ class LaneDetectionTestCases(unittest.TestCase):
         image = cv2.imread(self.image_path)
 
         self.assertIsNotNone(image,'input image not found')
-
-
-    def test_cameracaliberation(self):
-        caliberation = CheckCameraCalibration('camera_cal', 9, 6)
-        self.assertIsNotNone(caliberation,'Exception should be raised')
-
