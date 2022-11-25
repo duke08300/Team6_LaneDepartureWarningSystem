@@ -168,7 +168,7 @@ class DetectLaneDirection:
 
         return leftx, lefty, rightx, righty, out_img
     
-        def fit_poly(self, img):
+    def fit_poly(self, img):
         """Find the lane line from an image and draw it.
 
         Parameters:
