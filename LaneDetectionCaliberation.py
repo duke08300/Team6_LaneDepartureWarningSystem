@@ -37,6 +37,9 @@ class CheckCameraCalibration():
         plt.imshow(cv2.undistort(img, self.mtx, self.dist, None, self.mtx))
         plt.show()
         return cv2.undistort(img, self.mtx, self.dist, None, self.mtx)
+def hist(img):
+    bottom_half = img[img.shape[0]//2:,:]
+    return np.sum(bottom_half, axis=0)
     
     # Detect the direction of the lane if the lane is straight left or right
 class DetectLaneDirection:
