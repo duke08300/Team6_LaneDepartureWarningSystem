@@ -301,7 +301,19 @@ class DetectLaneDirection:
         pos = (1280 // 2 - (xl + xr) // 2) * xm
         return left_curveR, right_curveR, pos
     
-     # Region of interest
+def threshold_rel(img, lo, hi):
+    vmin = np.min(img)
+    vmax = np.max(img)
+
+    vlo = vmin + (vmax - vmin) * lo
+    vhi = vmin + (vmax - vmin) * hi
+    return np.uint8((img >= vlo) & (img <= vhi)) * 255
+
+
+def threshold_abs(img, lo, hi):
+    return np.uint8((img >= lo) & (img <= hi)) * 255
+    
+# Region of interest
 class PerspectiveTransformation:
     def __init__(self):
         """Init PerspectiveTransformation."""
