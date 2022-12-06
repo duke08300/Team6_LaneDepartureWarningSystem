@@ -33,12 +33,21 @@ class DetectLanes:
         plt.imshow(out_img)
         plt.show()
 
-
+    def process_video(self, input_path, output_path):
+        clip = VideoFileClip(input_path)
+        out_clip = clip.fl_image(self.forward)
+        # cv2.imshow("Final", out_clip)
+        out_clip.write_videofile(output_path, audio=False)
+   
+        
+        
 def main():
     findlanes = DetectLanes()
-    image_path = "image/input_image3.jpg"
-    findlanes.process_image(image_path)
-
+    #image_path = "image/input_image3.jpg"
+    #findlanes.process_image(image_path)
+    Video ="Video/project_video.mp4"
+    output = "Video/demo_length_output_video.mp4"
+    findlanes.process_video(Video,output)
 
 if __name__ == "__main__":
     main()
