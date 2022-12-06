@@ -45,7 +45,7 @@ def main():
     findlanes = DetectLanes()
     #image_path = "image/input_image3.jpg"
     #findlanes.process_image(image_path)
-    Video ="Video/project_video.mp4"
+    Video ="image/project_video.mp4"
     output = "Video/demo_length_output_video.mp4"
     findlanes.process_video(Video,output)
 
