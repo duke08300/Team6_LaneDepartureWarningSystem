@@ -46,7 +46,7 @@ def main():
     #image_path = "image/input_image3.jpg"
     #findlanes.process_image(image_path)
     Video ="image/project_video.mp4"
-    output = "Video/demo_length_output_video.mp4"
+    output = "image/demo_length_output_video.mp4"
     findlanes.process_video(Video,output)
 
 if __name__ == "__main__":
