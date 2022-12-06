@@ -15,6 +15,11 @@ class LaneDetectionTestCases(unittest.TestCase):
     def test_cameracaliberation(self):
     caliberation = CheckCameraCalibration('camera_cal', 9, 6)
     self.assertIsNotNone(caliberation,'Exception should be raised')
+    
+    def test_null_video_value(self):
+    clip = VideoFileClip(self.video_path)
+
+    self.assertIsNotNone(clip, 'input Video not found')
 
     def test_image_equal(self):
         image = mpimg.imread(self.image_path)
